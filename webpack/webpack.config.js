@@ -26,8 +26,23 @@ module.exports = {
         type: 'asset/resource',
       },
       {
-        test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
-        type: 'asset/inline',
+        test: /\.svg$/i,
+        type: 'asset',
+        resourceQuery: /url/, // *.svg?url
+      },
+      {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        resourceQuery: { not: [/url/] }, // exclude react component if *.svg?url
+        use: ['@svgr/webpack'],
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
+        // Overrides output.assetModuleFilename and works only with asset and asset/resource module types.
+        generator: {
+          filename: 'fonts/[name].[hash:5].[ext]',
+        },
       },
     ],
   },
@@ -39,6 +54,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '..', './src/index.html'),
+      favicon: path.resolve(__dirname, '..', './src/favicon/favicon.ico'),
     })
   ],
 }
