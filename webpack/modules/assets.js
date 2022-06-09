@@ -41,3 +41,18 @@ exports.loadSvg = () => ({
     ],
   },
 })
+
+exports.loadFonts = () => ({
+  module: {
+    rules: [
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
+        // Overrides output.assetModuleFilename and works only with asset and asset/resource module types.
+        generator: {
+          filename: 'fonts/[name].[hash:5].[ext]',
+        },
+      },
+    ],
+  },
+})

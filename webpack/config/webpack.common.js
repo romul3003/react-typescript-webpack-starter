@@ -15,22 +15,12 @@ module.exports = merge({
       extensions: ['.tsx', '.ts', '.js'],
     },
     output: {
+      filename: 'js/[name].[contenthash:5].[id].js', // entry point bundle name
+      chunkFilename: 'js/[name].[chunkhash:5].[id].js', // chunk name
       path: BUILD_DIRECTORY,
-      filename: 'bundle.js',
       clean: true,
+      assetModuleFilename: 'images/[name].[hash:5].[ext]', // folder for assets
       publicPath: '/',
-    },
-    module: {
-      rules: [
-        {
-          test: /\.(woff|woff2|eot|ttf|otf)$/i,
-          type: 'asset/resource',
-          // Overrides output.assetModuleFilename and works only with asset and asset/resource module types.
-          generator: {
-            filename: 'fonts/[name].[hash:5].[ext]',
-          },
-        },
-      ],
     },
   },
   modules.defineEnvVariables(),
@@ -39,4 +29,5 @@ module.exports = merge({
   modules.connectHtml(),
   modules.loadImages(),
   modules.loadSvg(),
+  modules.loadFonts(),
 )

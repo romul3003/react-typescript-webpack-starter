@@ -8,6 +8,7 @@ const {
   connectHtml,
   loadImages,
   loadSvg,
+  loadFonts,
 } = require('./assets')
 const { loadDevCss } = require('./styles')
 
@@ -20,4 +21,5 @@ module.exports = {
   loadDevCss,
   loadImages,
   loadSvg,
+  loadFonts,
 }
