@@ -2,6 +2,9 @@ const {
   defineEnvVariables,
   provideGlobals,
   setHotReload,
+  connectBuildProgressIndicator,
+  connectFriendlyErrors,
+  connectBundleAnalyzer,
 } = require('./utiles')
 const { loadJavaScript } = require('./javascript')
 const {
@@ -10,7 +13,7 @@ const {
   loadSvg,
   loadFonts,
 } = require('./assets')
-const { loadDevCss } = require('./styles')
+const { loadDevStyles, loadProdStyles } = require('./styles')
 
 module.exports = {
   defineEnvVariables,
@@ -18,8 +21,12 @@ module.exports = {
   setHotReload,
   loadJavaScript,
   connectHtml,
-  loadDevCss,
+  loadDevStyles,
   loadImages,
   loadSvg,
   loadFonts,
+  connectBuildProgressIndicator,
+  connectFriendlyErrors,
+  connectBundleAnalyzer,
+  loadProdStyles,
 }

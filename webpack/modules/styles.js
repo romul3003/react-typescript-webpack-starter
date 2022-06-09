@@ -1,5 +1,5 @@
 // const env = require('postcss-preset-env')
-// const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 // const cssnano = require('cssnano')
 
 const loadCss = ({ sourceMap = false } = { sourceMap: false }) => ({
@@ -69,7 +69,7 @@ const loadSass = ({ sourceMap = false } = { sourceMap: false }) => ({
   },
 })
 
-exports.loadDevCss = () => ({
+exports.loadDevStyles = () => ({
   module: {
     rules: [
       {
@@ -85,24 +85,24 @@ exports.loadDevCss = () => ({
   },
 })
 
-// exports.loadProdCss = () => ({
-//   module: {
-//     rules: [
-//       {
-//         test: /\.(css|s[ac]ss)$/,
-//         use: [
-//           MiniCssExtractPlugin.loader,
-//           loadCss({ sourceMap: false }),
-//           loadPostcss({ sourceMap: false, minify: true }),
-//           loadSass({ sourceMap: false }),
-//         ],
-//       },
-//     ],
-//   },
-//   plugins: [
-//     new MiniCssExtractPlugin({
-//       filename:      'css/[name].[contenthash:5].[id].css',
-//       chunkFilename: 'css/[name].[contenthash:5].[id].css',
-//     })
-//   ]
-// })
+exports.loadProdStyles = () => ({
+  module: {
+    rules: [
+      {
+        test: /\.(css|s[ac]ss)$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          loadCss({ sourceMap: false }),
+          // loadPostcss({ sourceMap: false, minify: true }),
+          loadSass({ sourceMap: false }),
+        ],
+      },
+    ],
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename:      'css/[name].[contenthash:5].[id].css',
+      chunkFilename: 'css/[name].[contenthash:5].[id].css',
+    })
+  ]
+})
