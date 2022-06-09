@@ -4,7 +4,11 @@ const {
   setHotReload,
 } = require('./utiles')
 const { loadJavaScript } = require('./javascript')
-const { connectHtml } = require('./assets')
+const {
+  connectHtml,
+  loadImages,
+  loadSvg,
+} = require('./assets')
 const { loadDevCss } = require('./styles')
 
 module.exports = {
@@ -14,4 +18,6 @@ module.exports = {
   loadJavaScript,
   connectHtml,
   loadDevCss,
+  loadImages,
+  loadSvg,
 }

@@ -12,3 +12,32 @@ exports.connectHtml = () => ({
     }),
   ]
 })
+
+exports.loadImages = () => ({
+  module: {
+    rules: [
+      {
+        test: /\.(png|jpg|jpeg|webp|ico|gif)$/,
+        type: 'asset/resource',
+      },
+    ],
+  },
+})
+
+exports.loadSvg = () => ({
+  module: {
+    rules: [
+      {
+        test: /\.svg$/i,
+        type: 'asset',
+        resourceQuery: /url/, // *.svg?url
+      },
+      {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        resourceQuery: { not: [/url/] }, // exclude react component if *.svg?url
+        use: ['@svgr/webpack'],
+      },
+    ],
+  },
+})

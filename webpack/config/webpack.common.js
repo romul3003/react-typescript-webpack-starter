@@ -23,21 +23,6 @@ module.exports = merge({
     module: {
       rules: [
         {
-          test: /\.(png|jpg|jpeg|webp|ico|gif)$/,
-          type: 'asset/resource',
-        },
-        {
-          test: /\.svg$/i,
-          type: 'asset',
-          resourceQuery: /url/, // *.svg?url
-        },
-        {
-          test: /\.svg$/i,
-          issuer: /\.[jt]sx?$/,
-          resourceQuery: { not: [/url/] }, // exclude react component if *.svg?url
-          use: ['@svgr/webpack'],
-        },
-        {
           test: /\.(woff|woff2|eot|ttf|otf)$/i,
           type: 'asset/resource',
           // Overrides output.assetModuleFilename and works only with asset and asset/resource module types.
@@ -52,4 +37,6 @@ module.exports = merge({
   modules.provideGlobals(),
   modules.loadJavaScript(),
   modules.connectHtml(),
+  modules.loadImages(),
+  modules.loadSvg(),
 )
