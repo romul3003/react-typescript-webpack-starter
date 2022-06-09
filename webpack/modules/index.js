@@ -14,6 +14,7 @@ const {
   loadFonts,
 } = require('./assets')
 const { loadDevStyles, loadProdStyles } = require('./styles')
+const { optimizeBuild } = require('./optimization')
 
 module.exports = {
   defineEnvVariables,
@@ -29,4 +30,5 @@ module.exports = {
   connectFriendlyErrors,
   connectBundleAnalyzer,
   loadProdStyles,
+  optimizeBuild,
 }
