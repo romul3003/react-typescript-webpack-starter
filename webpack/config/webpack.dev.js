@@ -1,4 +1,5 @@
 const { merge } = require('webpack-merge')
+const openBrowser = require('react-dev-utils/openBrowser')
 
 const modules = require('../modules')
 const { PORT, HOST, BUILD_DIRECTORY } = require('../constants')
@@ -11,8 +12,11 @@ module.exports = merge(common,
       static: {
         directory: BUILD_DIRECTORY,
       },
+      onListening: () => {
+        openBrowser(`http://${HOST}:${PORT}`)
+      },
       hot: true,
-      open: true,
+      // open: true,
       port: PORT,
       host: HOST,
       historyApiFallback: true,
