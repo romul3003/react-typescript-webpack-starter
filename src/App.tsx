@@ -1,8 +1,8 @@
-import './styles.css'
 import kitty from './assets/kitty.jpg'
 import reactLogo from './assets/react-1.svg?url'
 import ReactLogoComponent from './assets/react.svg'
 import {ClickCounter} from './components/ClickCounter'
+import './styles.css'
 
 const App = () => {
   return (
