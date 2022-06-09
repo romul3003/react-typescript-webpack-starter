@@ -1,10 +1,22 @@
-const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const {
+  BUILD_DIRECTORY,
+  SOURCE_DIRECTORY,
+  STATIC_DIRECTORY,
+} = require('./constants')
 
 module.exports = {
-  entry: path.resolve(__dirname, '..', './src/index.tsx'),
+  entry: {
+    index: SOURCE_DIRECTORY,
+  },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
+  },
+  output: {
+    path: BUILD_DIRECTORY,
+    filename: 'bundle.js',
+    clean: true,
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -46,14 +58,11 @@ module.exports = {
       },
     ],
   },
-  output: {
-    path: path.resolve(__dirname, '..', './build'),
-    filename: 'bundle.js',
-  },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '..', './src/index.html'),
-      favicon: path.resolve(__dirname, '..', './src/favicon/favicon.ico'),
+      template: `${STATIC_DIRECTORY}/template.html`,
+      title: 'React typescript webpack starter! 🚀 ',
+      favicon: `${STATIC_DIRECTORY}/favicon/favicon.ico`,
     })
   ],
 }
