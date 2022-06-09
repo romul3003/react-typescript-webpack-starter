@@ -3,7 +3,7 @@ const {
   BUILD_DIRECTORY,
   SOURCE_DIRECTORY,
   STATIC_DIRECTORY,
-} = require('./constants')
+} = require('../constants')
 
 module.exports = {
   entry: {
