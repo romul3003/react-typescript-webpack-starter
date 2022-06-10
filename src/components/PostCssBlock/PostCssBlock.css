@@ -1,0 +1,12 @@
+.block {
+  color: green;
+  font-family: "Roboto Condensed", sans-serif;
+
+  @media (--phonePortrait) {
+    color: red;
+  }
+
+  & .title {
+    color: blue;
+  }
+}

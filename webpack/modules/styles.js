@@ -1,6 +1,6 @@
-// const env = require('postcss-preset-env')
+const env = require('postcss-preset-env')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-// const cssnano = require('cssnano')
+const cssnano = require('cssnano')
 
 const loadCss = ({ sourceMap = false } = { sourceMap: false }) => ({
   loader:  'css-loader',
@@ -12,55 +12,55 @@ const loadCss = ({ sourceMap = false } = { sourceMap: false }) => ({
   },
 })
 
-// const loadPostcss = (
-//   { sourceMap = false, minify = false } = { sourceMap: false, minify: false },
-// ) => {
-//   const plugins = [
-//     env({
-//       stage: 0, // default: stage 2
-//       features: {
-//         'custom-media-queries': {
-//           importFrom: [
-//             {
-//               customMedia: {
-//                 '--phonePortrait':
-//                   '(width <= 414px)',
-//                 '--phoneLandscape':
-//                   '(width >= 414px) and (width <= 667)',
-//                 '--tabletPortrait':
-//                   '(width >= 668px and (width <= 768px))',
-//                 '--tabletLandscape':
-//                   '(width >= 769px and (width <= 1024px))',
-//                 '--desktopS':
-//                   '(width >= 1025px and (width <= 1366px))',
-//                 '--desktopM':
-//                   '(width >= 1367px and (width <= 1680px))',
-//                 '--desktopL':
-//                   '(width >= 1681px and (width <= 1920px))',
-//                 '--desktopXL':
-//                   '(width >= 1921px)',
-//               },
-//             },
-//           ],
-//         },
-//       },
-//     }),
-//   ]
-//
-//   if (minify) {
-//     plugins.push(cssnano);
-//   }
-//
-//   return {
-//     loader:  'postcss-loader',
-//     options: {
-//       postcssOptions: {
-//         plugins,
-//       },
-//       sourceMap,
-//     }
-//   }
-// }
+const loadPostcss = (
+  { sourceMap = false, minify = false } = { sourceMap: false, minify: false },
+) => {
+  const plugins = [
+    env({
+      stage: 0, // default: stage 2
+      features: {
+        'custom-media-queries': {
+          importFrom: [
+            {
+              customMedia: {
+                '--phonePortrait':
+                  '(width <= 414px)',
+                '--phoneLandscape':
+                  '(width >= 414px) and (width <= 667)',
+                '--tabletPortrait':
+                  '(width >= 668px and (width <= 768px))',
+                '--tabletLandscape':
+                  '(width >= 769px and (width <= 1024px))',
+                '--desktopS':
+                  '(width >= 1025px and (width <= 1366px))',
+                '--desktopM':
+                  '(width >= 1367px and (width <= 1680px))',
+                '--desktopL':
+                  '(width >= 1681px and (width <= 1920px))',
+                '--desktopXL':
+                  '(width >= 1921px)',
+              },
+            },
+          ],
+        },
+      },
+    }),
+  ]
+
+  if (minify) {
+    plugins.push(cssnano);
+  }
+
+  return {
+    loader:  'postcss-loader',
+    options: {
+      postcssOptions: {
+        plugins,
+      },
+      sourceMap,
+    }
+  }
+}
 
 const loadSass = ({ sourceMap = false } = { sourceMap: false }) => ({
   loader: 'sass-loader',
@@ -77,7 +77,7 @@ exports.loadDevStyles = () => ({
         use: [
           'style-loader',
           loadCss({ sourceMap: true }),
-          // loadPostcss({ sourceMap: true, minify: false }),
+          loadPostcss({ sourceMap: true, minify: false }),
           loadSass({ sourceMap: true }),
         ],
       },
@@ -93,7 +93,7 @@ exports.loadProdStyles = () => ({
         use: [
           MiniCssExtractPlugin.loader,
           loadCss({ sourceMap: false }),
-          // loadPostcss({ sourceMap: false, minify: true }),
+          loadPostcss({ sourceMap: false, minify: true }),
           loadSass({ sourceMap: false }),
         ],
       },
