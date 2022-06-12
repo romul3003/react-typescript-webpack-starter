@@ -5,15 +5,15 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 
 exports.connectBuildProgressIndicator = () => ({
-  plugins: [ new WebpackBar() ],
+  plugins: [new WebpackBar()],
 })
 
 exports.connectFriendlyErrors = () => ({
-  plugins: [ new FriendlyErrorsWebpackPlugin() ],
+  plugins: [new FriendlyErrorsWebpackPlugin()],
 })
 
 exports.setHotReload = () => ({
-  plugins: [ new ReactRefreshWebpackPlugin() ],
+  plugins: [new ReactRefreshWebpackPlugin()],
 })
 
 exports.defineEnvVariables = () => {
@@ -23,7 +23,7 @@ exports.defineEnvVariables = () => {
     plugins: [
       new DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(NODE_ENV), // fix "process is not defined" error
-        'process.env.name': JSON.stringify('Vishwas'),
+        'process.env.name': JSON.stringify('Roman'),
         __API_URI__: 'https:....',
         __ENV__: JSON.stringify(NODE_ENV),
         __DEV__: NODE_ENV === 'development',
@@ -47,8 +47,8 @@ exports.provideGlobals = () => ({
 exports.connectBundleAnalyzer = () => ({
   plugins: [
     new BundleAnalyzerPlugin({
-      analyzerMode:      'disabled',
-      openAnalyzer:      false,
+      analyzerMode: 'disabled',
+      openAnalyzer: false,
       generateStatsFile: true,
     }),
   ],

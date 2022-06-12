@@ -3,9 +3,10 @@ const openBrowser = require('react-dev-utils/openBrowser')
 
 const modules = require('../modules')
 const { PORT, HOST, BUILD_DIRECTORY } = require('../constants')
-const common = require('./webpack.common.js')
+const common = require('./webpack.common')
 
-module.exports = merge(common,
+module.exports = merge(
+  common,
   {
     mode: 'development',
     devServer: {
@@ -30,5 +31,5 @@ module.exports = merge(common,
   },
   modules.setHotReload(),
   modules.loadDevStyles(),
-  modules.connectFriendlyErrors()
+  modules.connectFriendlyErrors(),
 )

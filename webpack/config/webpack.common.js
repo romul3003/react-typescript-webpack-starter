@@ -7,7 +7,8 @@ const {
 
 const modules = require('../modules')
 
-module.exports = merge({
+module.exports = merge(
+  {
     entry: {
       index: SOURCE_DIRECTORY,
     },
@@ -19,7 +20,7 @@ module.exports = merge({
       chunkFilename: 'js/[name].[chunkhash:5].[id].js', // chunk name
       path: BUILD_DIRECTORY,
       clean: true,
-      assetModuleFilename: 'images/[name].[hash:5].[ext]', // folder for assets
+      assetModuleFilename: 'assets/[name].[hash:5].[ext]', // folder for assets
       publicPath: '/',
     },
   },

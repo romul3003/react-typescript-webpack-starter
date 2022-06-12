@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const cssnano = require('cssnano')
 
 const loadCss = ({ sourceMap = false } = { sourceMap: false }) => ({
-  loader:  'css-loader',
+  loader: 'css-loader',
   options: {
     modules: {
       localIdentName: '[path][name]__[local]--[hash:base64:5]', // generated style classes
@@ -48,17 +48,17 @@ const loadPostcss = (
   ]
 
   if (minify) {
-    plugins.push(cssnano);
+    plugins.push(cssnano)
   }
 
   return {
-    loader:  'postcss-loader',
+    loader: 'postcss-loader',
     options: {
       postcssOptions: {
         plugins,
       },
       sourceMap,
-    }
+    },
   }
 }
 
@@ -101,8 +101,8 @@ exports.loadProdStyles = () => ({
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename:      'css/[name].[contenthash:5].[id].css',
-      chunkFilename: 'css/[name].[contenthash:5].[id].css',
-    })
-  ]
+      filename: 'styles/[name].[contenthash:5].[id].css',
+      chunkFilename: 'styles/[name].[contenthash:5].[id].css',
+    }),
+  ],
 })
