@@ -7,7 +7,7 @@
     "start": "cross-env NODE_ENV=development webpack-dev-server --config \"webpack/config/webpack.dev.js\"",
     "build": "cross-env NODE_ENV=production webpack --config \"webpack/config/webpack.prod.js\"",
     "serve": "serve \"./build\" -s",
-    "lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
+    "lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\" && stylelint --fix \"./src/**/*.{css,scss}\"",
     "analyze": "webpack-bundle-analyzer \"./build/stats.json\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install"
@@ -51,12 +51,22 @@
     "mini-css-extract-plugin": "^2.6.0",
     "postcss-loader": "^7.0.0",
     "postcss-preset-env": "^7.7.1",
+    "postcss-scss": "^4.0.4",
     "react-dev-utils": "^12.0.1",
     "react-refresh": "^0.13.0",
     "sass": "^1.52.3",
     "sass-loader": "^13.0.0",
     "serve": "^13.0.2",
     "style-loader": "^3.3.1",
+    "stylelint": "^14.9.1",
+    "stylelint-config-recess-order": "^3.0.0",
+    "stylelint-config-standard": "^26.0.0",
+    "stylelint-config-standard-scss": "^4.0.0",
+    "stylelint-declaration-block-no-ignored-properties": "^2.5.0",
+    "stylelint-order": "^5.0.0",
+    "stylelint-scss": "^4.2.0",
+    "stylelint-selector-no-empty": "^1.0.9",
+    "stylelint-use-nesting": "^3.0.0",
     "terser-webpack-plugin": "^5.3.3",
     "typescript": "^4.7.3",
     "webpack": "^5.73.0",
@@ -70,6 +80,9 @@
     "src/**/*.{js,jsx,ts,tsx,json}": [
       "eslint --fix",
       "node_modules/.bin/eslint --max-warnings=0"
+    ],
+    "src/**/*.{css,scss}": [
+      "stylelint --fix"
     ]
   }
 }

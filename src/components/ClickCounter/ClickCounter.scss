@@ -2,10 +2,10 @@ $color: white;
 $bg-color: #2bd8ff;
 
 .button {
-  background-color: $bg-color;
+  padding: 0.5rem 1rem;
   color: $color;
+  background-color: $bg-color;
   border: 0;
-  padding: .5rem 1rem;
 
   &:hover {
     cursor: pointer;

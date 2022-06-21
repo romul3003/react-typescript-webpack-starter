@@ -1,10 +1,10 @@
 .block {
+  font-family: 'Roboto Condensed', sans-serif;
   color: green;
-  font-family: "Roboto Condensed", sans-serif;
 
-  @media (--phonePortrait) {
+  /*  @media (--phonePortrait) {
     color: red;
-  }
+  } */
 
   & .title {
     color: blue;
