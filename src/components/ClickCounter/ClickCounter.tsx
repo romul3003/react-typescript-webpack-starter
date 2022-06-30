@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styles from './ClickCounter.scss'
 
-export function ClickCounter() {
+export const ClickCounter = () => {
   const [count, setCount] = useState(0)
   return (
     <div>

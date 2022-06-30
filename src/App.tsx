@@ -5,7 +5,7 @@ import { ClickCounter } from './components/ClickCounter/ClickCounter'
 import PostCssBlock from './components/PostCssBlock/PostCssBlock'
 import './styles.css'
 
-function App() {
+const App = () => {
   const language = 'typescript'
 
   return (
