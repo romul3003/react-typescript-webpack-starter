@@ -40,7 +40,7 @@ module.exports = {
       tsx: 'never',
       tx: 'never',
     }],
-    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    'import/no-extraneous-dependencies': ['off', { devDependencies: true }],
 
     'jsx-a11y/click-events-have-key-events': [1],
     'jsx-a11y/anchor-is-valid': [1],
