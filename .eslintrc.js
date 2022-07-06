@@ -54,6 +54,7 @@ module.exports = {
     semi: ['warn', 'never'],
     indent: ['error', 2, { ignoredNodes: ['TemplateLiteral'] }],
     'arrow-parens': [2, 'as-needed', { requireForBlockBody: true }],
+    'default-param-last': 'off',
 
     'no-unused-vars': 'off',
     'no-console': 1,
