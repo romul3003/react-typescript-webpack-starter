@@ -7,7 +7,7 @@
     "start": "cross-env NODE_ENV=development webpack-dev-server --config \"webpack/config/webpack.dev.js\"",
     "build": "cross-env NODE_ENV=production webpack --config \"webpack/config/webpack.prod.js\"",
     "serve": "serve \"./build\" -s",
-    "lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\" && stylelint --fix \"./src/**/*.{css,scss}\"",
+    "lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
     "lint:styles": "stylelint --fix \"./src/**/*.{css,scss}\"",
     "analyze": "webpack-bundle-analyzer \"./build/stats.json\"",
     "test": "echo \"Error: no test specified\" && exit 1",
