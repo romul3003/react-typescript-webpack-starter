@@ -64,7 +64,7 @@ module.exports = {
 
     quotes: ['error', 'single'],
     semi: ['warn', 'never'],
-    indent: ['error', 2, { ignoredNodes: ['TemplateLiteral'] }],
+    indent: ['error', 2, { ignoredNodes: ['TemplateLiteral'], SwitchCase: 1 }],
     'arrow-parens': [2, 'as-needed', { requireForBlockBody: true }],
     'default-param-last': 'off',
 
